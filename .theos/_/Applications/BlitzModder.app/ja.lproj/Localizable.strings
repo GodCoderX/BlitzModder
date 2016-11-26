@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Mods List ▼</key>
+	<string>Modリスト ▼</string>
+	<key>Settings</key>
+	<string>設定</string>
+	<key>Apply</key>
+	<string>適用</string>
+	<key>Warning</key>
+	<string>警告</string>
+	<key>Your iOS Version is not supported.\nPlease update to iOS9 and jailbreak again.</key>
+	<string>このバージョンのiOSはサポートされていません。\niOS9にアップデート後、脱獄してください。</string>
+	<key>World of Tanks Blitz is not installed.\nPlease install it from App Store.</key>
+	<string>World of Tanks Blitzがインストールされていません。\nApp Storeからインストールしてください。</string>
+	<key>Confirm</key>
+	<string>確認</string>
+	<key>There are no changes to be applied.</key>
+	<string>変更はありません。</string>
+	<key>%@Are you going to apply %d changes?</key>
+	<string>%@以上%d件の変更を適用しますか？</string>
+	<key>Cancel</key>
+	<string>キャンセル</string>
+	<key>Yes</key>
+	<string>はい</string>
+	<key>OK</key>
+	<string>了解</string>
+	<key>Return to Mod List</key>
+	<string>Modリストに戻る</string>
+	<key>Downloading %@...</key>
+	<string>%@をダウンロード中...</string>
+	<key>Downloading the removal data of %@...</key>
+	<string>%@の削除用データをダウンロード中...</string>
+	<key>Installing %@...</key>
+	<string>%@をインストール中...</string>
+	<key>Removing %@...</key>
+	<string>%@を削除中...</string>
+	<key>Language Settings</key>
+	<string>言語設定</string>
+	<key>Done</key>
+	<string>完了</string>
+	<key>Caution</key>
+	<string>注意</string>
+	<key>You have to restart the application to apply changes.</key>
+	<string>変更を適用するにはアプリの再起動が必要です。</string>
+	<key>Your internet connection seems to be offline.</key>
+	<string>インターネット接続がオフラインのようです。</string>
+	<key>Notice</key>
+	<string>注意</string>
+	<key>Error</key>
+	<string>エラー</string>
+	<key>%@.plist does NOT exist! Please contact the owner of this repository.</key>
+	<string>%@.plistが存在しません。このリポジトリの管理者にお問い合わせください。</string>
+	<key>Back</key>
+	<string>戻る</string>
+	<key>Repository</key>
+	<string>リポジトリ</string>
+	<key>Repository List</key>
+	<string>リポジトリ一覧</string>
+	<key>Enter Repository</key>
+	<string>リポジトリを入力</string>
+	<key>This repository has already been registered.</key>
+	<string>このリポジトリはすでに登録されています。</string>
+	<key>Checking Repository...</key>
+	<string>リポジトリを確認中...</string>
+	<key>Running</key>
+	<string>実行中</string>
+	<key>Select repository to show</key>
+	<string>表示するリポジトリを選択</string>
+	<key>Queue</key>
+	<string>キュー</string>
+	<key>Remove</key>
+	<string>削除</string>
+	<key>Install</key>
+	<string>インストール</string>
+	<key>Others</key>
+	<string>その他</string>
+	<key>Not Installed</key>
+	<string>未インストール</string>
+	<key>Installed</key>
+	<string>インストール済</string>
+	<key>Trouble Shooting</key>
+	<string>困ったとき</string>
+	<key>Contact</key>
+	<string>お問い合わせ</string>
+	<key>Reset All Settings</key>
+	<string>全設定をリセット</string>
+	<key>Do you want to reset ALL settings?</key>
+	<string>全設定をリセットしてもよろしいですか？</string>
+	<key>Tap here after you update the Blitz app.</key>
+	<string>Blitzをアップデートした後にここを押してください。</string>
+	<key>Website</key>
+	<string>ホームページ</string>
+	<key>You can refer to the usage of BlitzModder.</key>
+	<string>BlitzModderの使い方などが書いてあります。</string>
+	<key>Bug report / Feature request</key>
+	<string>バグ報告 / 新機能の提案</string>
+	<key>\n\n\n\n\nDevice: %@\niOS Version: %@\nApp Version: %@</key>
+	<string>\n\n\n\n\n端末: %@\niOSバージョン: %@\nアプリのバージョン: %@</string>
+	<key>Failed to check for update. Please report this to GodCoderX.</key>
+	<string>更新に失敗しました。GodCoderXに報告してください。</string>
+	<key>New version of BlitzModder is available. Please go to Cydia to get the update.</key>
+	<string>BlitzModderの新しいバージョンがあります。Cydiaで更新して下さい。</string>
+	<key>You are using the newer version than latest one. Please report this to GodCoderX.</key>
+	<string>最新バージョンよりも新しいものを使用しています。GodCoderXに報告してください。</string>
+	<key>File Not Found(404)! Please contact the owner of this repository.\n</key>
+	<string>ファイルが見つかりません！(404)このリポジトリの管理者に連絡してください。</string>
+</dict>
+</plist>

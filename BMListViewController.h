@@ -1,0 +1,2 @@
+@interface BMListViewController : UITableViewController
+@end

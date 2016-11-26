@@ -1,0 +1,2 @@
+@interface BMRootViewController : UITableViewController
+@end
