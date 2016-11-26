@@ -111,8 +111,13 @@
     return nil;
 }
 
-- (NSString *)getDisplayName:(NSString *) localeIdentifier {
+- (NSString *)getDisplayName:(NSString *)localeIdentifier {
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    return [locale displayNameForKey:NSLocaleIdentifier value:localeIdentifier];
+}
+
+- (NSString *)getEnglishName:(NSString *)localeIdentifier {
+	NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:languageArray[appLanguage]];
     return [locale displayNameForKey:NSLocaleIdentifier value:localeIdentifier];
 }
 
@@ -121,9 +126,11 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (indexPath.section == 0) {
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         }
         cell.textLabel.text = [self getDisplayName:languageArray[indexPath.row]];
+		cell.detailTextLabel.text = [self getEnglishName:languageArray[indexPath.row]];
+		cell.detailTextLabel.textColor = [UIColor grayColor];
     } else if (indexPath.section == 1) {
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -137,11 +144,11 @@
 		if (indexPath.row == 0) {
 			cell.textLabel.text = [self BMLocalizedString:@"Reset All Settings"];
 			cell.textLabel.textColor = [UIColor redColor];
-			cell.detailTextLabel.text = [self BMLocalizedString:@"Use this button after you update the Blitz app."];
+			cell.detailTextLabel.text = [self BMLocalizedString:@"Tap here after you update Blitz or when something is wrong"];
 			cell.detailTextLabel.textColor = [UIColor grayColor];
 		} else if (indexPath.row == 1) {
 			cell.textLabel.text = [self BMLocalizedString:@"Website"];
-			cell.detailTextLabel.text = [self BMLocalizedString:@"Refer to the usage of BlitzModder."];
+			cell.detailTextLabel.text = [self BMLocalizedString:@"Tap here to refer to the usage of BlitzModder"];
 			cell.detailTextLabel.textColor = [UIColor grayColor];
 		}
 
@@ -183,7 +190,7 @@
 			}]];
 			[self presentViewController:alertController animated:YES completion:nil];
 		} else if (indexPath.row == 1) {
-			NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://godcoderx.com/blitzmodder/%@/index.html",languageArray[appLanguage]]];
+			NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://subdiox.com/blitzmodder/%@/index.html",languageArray[appLanguage]]];
 			[[UIApplication sharedApplication] openURL:url];
 		}
 	} else if (indexPath.section == 3) {
@@ -230,76 +237,21 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-// Contactボタンがタップされたとき
 - (void)contactButtonTapped {
-    // メールビュー生成
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
     picker.mailComposeDelegate = self;
-
-	// 宛先
-	[picker setToRecipients:[NSArray arrayWithObjects:@"godcoderx@gmail.com", nil]];
-
-    // メール件名
+	[picker setToRecipients:[NSArray arrayWithObjects:@"subdiox@gmail.com", nil]];
     [picker setSubject:[self BMLocalizedString:@"BlitzModder Support"]];
-
-    // 添付ファイル
-	NSData *plistData = [NSData dataWithContentsOfFile:@"/var/root/Library/Preferences/com.godcoderx.blitzmodder.plist"];
-    [picker addAttachmentData:plistData mimeType:@"application/x-plist" fileName:@"com.godcoderx.blitzmodder.plist"];
-
-    // メール本文
+	NSData *plistData = [NSData dataWithContentsOfFile:@"/var/root/Library/Preferences/com.subdiox.blitzmodder.plist"];
+    [picker addAttachmentData:plistData mimeType:@"application/x-plist" fileName:@"com.subdiox.blitzmodder.plist"];
 	[picker setMessageBody:[NSString stringWithFormat:[self BMLocalizedString:@"\n\n\n\n\nDevice: %@\niOS Version: %@\nApp Version: %@"], [self platformString], [self iOSVersion], [self appVersion]] isHTML:NO];
-
-    // メールビュー表示
     [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (NSString *)platformString {
     struct utsname systemInfo;
     uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-
-    if ([platform isEqualToString:@"iPhone1,1"]) return @"iPhone 1G";
-    if ([platform isEqualToString:@"iPhone1,2"]) return @"iPhone 3G";
-    if ([platform isEqualToString:@"iPhone2,1"]) return @"iPhone 3GS";
-    if ([platform isEqualToString:@"iPhone3,1"]) return @"iPhone 4(Rev A)";
-    if ([platform isEqualToString:@"iPhone3,2"]) return @"iPhone 4(CDMA)";
-    if ([platform isEqualToString:@"iPhone4,1"]) return @"iPhone 4S";
-    if ([platform isEqualToString:@"iPhone5,1"]) return @"iPhone 5";    // GSM
-    if ([platform isEqualToString:@"iPhone5,2"]) return @"iPhone 5";    // GSM+CDMA
-    if ([platform isEqualToString:@"iPhone5,3"]) return @"iPhone 5C";   // GSM
-    if ([platform isEqualToString:@"iPhone5,4"]) return @"iPhone 5C";   // GSM+CDMA
-    if ([platform isEqualToString:@"iPhone6,1"]) return @"iPhone 5S";   // GSM
-    if ([platform isEqualToString:@"iPhone6,2"]) return @"iPhone 5S";   // GSM+CDMA
-    if ([platform isEqualToString:@"iPhone7,1"]) return @"iPhone 6 Plus";    // ?
-    if ([platform isEqualToString:@"iPhone7,2"]) return @"iPhone 6";    // ?
-	if ([platform isEqualToString:@"iPhone8,1"]) return @"iPhone 6s";
-    if ([platform isEqualToString:@"iPhone8,2"]) return @"iPhone 6s Plus";
-    if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1G";
-    if ([platform isEqualToString:@"iPod2,1"])   return @"iPod Touch 2G";
-    if ([platform isEqualToString:@"iPod3,1"])   return @"iPod Touch 3G";
-    if ([platform isEqualToString:@"iPod4,1"])   return @"iPod Touch 4G";
-    if ([platform isEqualToString:@"iPod5,1"])   return @"iPod Touch 5G";
-	if ([platform isEqualToString:@"iPod6,1"])   return @"iPod Touch 6G";
-    if ([platform isEqualToString:@"iPad1,1"])   return @"iPad";
-    if ([platform isEqualToString:@"iPad2,1"])   return @"iPad 2 WiFi";
-    if ([platform isEqualToString:@"iPad2,2"])   return @"iPad 2 GSM";
-    if ([platform isEqualToString:@"iPad2,3"])   return @"iPad 2 CDMA";
-    if ([platform isEqualToString:@"iPad2,4"])   return @"iPad 2 CDMAS";
-    if ([platform isEqualToString:@"iPad2,5"])   return @"iPad Mini Wifi";
-    if ([platform isEqualToString:@"iPad2,6"])   return @"iPad Mini (Wi-Fi + Cellular)";
-    if ([platform isEqualToString:@"iPad2,7"])   return @"iPad Mini (Wi-Fi + Cellular MM)";
-    if ([platform isEqualToString:@"iPad3,1"])   return @"iPad 3 WiFi";
-    if ([platform isEqualToString:@"iPad3,2"])   return @"iPad 3 CDMA";
-    if ([platform isEqualToString:@"iPad3,3"])   return @"iPad 3 GSM";
-    if ([platform isEqualToString:@"iPad3,4"])   return @"iPad 4 Wifi";
-	if ([platform isEqualToString:@"iPad4,1"])   return @"iPad 5 Wifi";
-    if ([platform isEqualToString:@"iPad4,2"])   return @"iPad 5 Cellular";
-    if ([platform isEqualToString:@"iPad4,4"])   return @"iPad 2 Mini Wifi";
-    if ([platform isEqualToString:@"iPad4,5"])   return @"iPad 2 Mini Cellular";
-    if ([platform isEqualToString:@"iPad4,7"])   return @"iPad 3 Mini Wifi";
-    if ([platform isEqualToString:@"i386"])      return @"Simulator";
-    if ([platform isEqualToString:@"x86_64"])    return @"Simulator";
-    return [NSString stringWithFormat:@"Unknown:%@",platform];
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
 - (NSString *)iOSVersion {
@@ -314,20 +266,12 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     switch (result) {
         case MFMailComposeResultCancelled:
-            // キャンセル
-
             break;
         case MFMailComposeResultSaved:
-            // 保存 (ここでアラート表示するなど何らかの処理を行う)
-
             break;
         case MFMailComposeResultSent:
-            // 送信成功 (ここでアラート表示するなど何らかの処理を行う)
-
             break;
         case MFMailComposeResultFailed:
-            // 送信失敗 (ここでアラート表示するなど何らかの処理を行う)
-
             break;
         default:
             break;

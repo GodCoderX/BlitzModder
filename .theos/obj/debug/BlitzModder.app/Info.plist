@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>BlitzModder</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.godcoderx.blitzmodder</string>
+	<string>com.subdiox.blitzmodder</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -19,7 +19,7 @@
 		<string>iPhoneOS</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.2.4</string>
+	<string>2.2.6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIDeviceFamily</key>

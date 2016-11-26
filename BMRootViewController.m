@@ -59,11 +59,6 @@
 	[self checkForUpdate];
     [self refreshMods];
 
-	if (repoArray[0] == @"GodCoderX") {
-		repoArray = @"subdiox";
-		[self saveUserDefaults];
-	}
-
 	// initialize rootViewController
     BMRootViewController *rootViewController = [[BMRootViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
@@ -202,14 +197,14 @@
 - (void)checkForUpdate {
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-    NSURL *requestURL = [NSURL URLWithString:@"https://github.com/GodCoderX/BlitzModder-iOS/raw/master/version"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://github.com/subdiox/BlitzModder-iOS/raw/master/version"];
     NSURLSessionDataTask *task = [session dataTaskWithURL:requestURL
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 											if (!error) {
 												NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
 												if (statusCode == 404) {
 	                                                dispatch_async(dispatch_get_main_queue(), ^{
-	                                                    [self showError:[self BMLocalizedString:@"Failed to check for update. Please report this to GodCoderX."]];
+	                                                    [self showError:[self BMLocalizedString:@"Failed to check for update. Please report this to subdiox."]];
 	                                                    return;
 	                                                });
 	                                            } else {
@@ -219,7 +214,7 @@
 													if ([self convertVersion:appVersion] < [self convertVersion:latestVersion]) {
 														[self showError:[self BMLocalizedString:@"New version of BlitzModder is available. Please go to Cydia to get the update."]];
 													} else if ([self convertVersion:appVersion] > [self convertVersion:latestVersion]) {
-														[self showError:[self BMLocalizedString:@"You are using the newer version than latest one. Please report this to GodCoderX."]];
+														[self showError:[self BMLocalizedString:@"You are using the newer version than latest one. Please report this to subdiox."]];
 													}
 	                                            }
 											}}];

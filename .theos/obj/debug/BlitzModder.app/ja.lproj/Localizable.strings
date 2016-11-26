@@ -88,22 +88,22 @@
 	<string>全設定をリセット</string>
 	<key>Do you want to reset ALL settings?</key>
 	<string>全設定をリセットしてもよろしいですか？</string>
-	<key>Tap here after you update the Blitz app.</key>
-	<string>Blitzをアップデートした後にここを押してください。</string>
+	<key>Tap here after you update Blitz or when something is wrong</key>
+	<string>Blitzの更新後や調子がおかしいときにはここをタップ</string>
 	<key>Website</key>
 	<string>ホームページ</string>
-	<key>You can refer to the usage of BlitzModder.</key>
-	<string>BlitzModderの使い方などが書いてあります。</string>
+	<key>Tap here to refer to the usage of BlitzModder</key>
+	<string>BlitzModderの使い方を参照するにはここをタップ</string>
 	<key>Bug report / Feature request</key>
 	<string>バグ報告 / 新機能の提案</string>
 	<key>\n\n\n\n\nDevice: %@\niOS Version: %@\nApp Version: %@</key>
 	<string>\n\n\n\n\n端末: %@\niOSバージョン: %@\nアプリのバージョン: %@</string>
-	<key>Failed to check for update. Please report this to GodCoderX.</key>
-	<string>更新に失敗しました。GodCoderXに報告してください。</string>
+	<key>Failed to check for update. Please report this to subdiox.</key>
+	<string>更新に失敗しました。subdioxに報告してください。</string>
 	<key>New version of BlitzModder is available. Please go to Cydia to get the update.</key>
 	<string>BlitzModderの新しいバージョンがあります。Cydiaで更新して下さい。</string>
-	<key>You are using the newer version than latest one. Please report this to GodCoderX.</key>
-	<string>最新バージョンよりも新しいものを使用しています。GodCoderXに報告してください。</string>
+	<key>You are using the newer version than latest one. Please report this to subdiox.</key>
+	<string>最新バージョンよりも新しいものを使用しています。subdioxに報告してください。</string>
 	<key>File Not Found(404)! Please contact the owner of this repository.\n</key>
 	<string>ファイルが見つかりません！(404)このリポジトリの管理者に連絡してください。</string>
 </dict>

@@ -1,15 +1,13 @@
-Author: GodCoderX <godcoderx@gmail.com>
-Maintainer: GodCoderX <godcoderx@gmail.com>
-Name: Blitz Modder 2
-Package: com.godcoderx.blitzmodder
+Author: subdiox <subdiox@gmail.com>
+Maintainer: subdiox <subdiox@gmail.com>
+Name: Blitz Modder
+Package: com.subdiox.blitzmodder
 Depends: coreutils-bin,unzip
-Breaks: org.coolstar.stash933
 Section: Utilities
-Version: 2.2.4
+Version: 2.2.6
 Architecture: iphoneos-arm
 Description: Mod Manager for World of Tanks Blitz
 Depiction: Mod Manager for Blitz
-Homepage: http://godcoderx.com
+Homepage: http://subdiox.com
 Sponsor:
 Tag: purpose::extension
-Icon: file:///Users/yuta/THEOS/blitzmodder/CydiaIcon.png

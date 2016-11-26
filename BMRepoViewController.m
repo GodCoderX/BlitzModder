@@ -16,8 +16,7 @@
 
 - (void)loadView {
     [super loadView];
-    languageArray = [NSArray arrayWithObjects:@"en",@"ja",nil];
-    repoArray = [[NSMutableArray alloc] init];
+	[self getUserDefaults];
     self.title = [self BMLocalizedString:@"Repository List"];
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped:)];
@@ -94,7 +93,7 @@
                                                                        message:nil
                                                                 preferredStyle:UIAlertControllerStyleAlert];
     [textAlert addTextFieldWithConfigurationHandler:^(UITextField *textField){
-        textField.placeholder = @"GodCoderX";
+        textField.placeholder = @"subdiox";
     }];
     UIAlertAction *keywordOkAction = [UIAlertAction actionWithTitle:@"OK"
                                                               style:UIAlertActionStyleDefault
